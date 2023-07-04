@@ -1,0 +1,3 @@
+[submodule "ArcEngine/vendor/spdlog"]
+	path = ArcEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog
