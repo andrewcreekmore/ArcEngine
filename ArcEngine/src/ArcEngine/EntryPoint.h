@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Log.h"
+
 /*
 ===========================================================================
 EntryPoint.h: engine + client app initialization
@@ -16,10 +18,7 @@ extern ArcEngine::Application* ArcEngine::CreateApplication();
 
 int main(int argc, char** argv)
 {
-	//Engine::Log::Init();
-	//ENG_CORE_WARN("Initialized core logger!");
-	//int a = 5;
-	//ENG_INFO("Initialized client logger! Var = {0}", a);
+	ArcEngine::Log::Init();
 
 	auto app = ArcEngine::CreateApplication();
 	app->Run();

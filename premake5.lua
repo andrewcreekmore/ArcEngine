@@ -40,8 +40,8 @@ project "ArcEngine"
 
 	includedirs
 	{
-		"%{prj.name}/src"--,
-		--"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include"--,
 		--"%{includedir.GLFW}",
 		--"%{includedir.Glad}",
 		--"%{includedir.ImGui}"
@@ -109,7 +109,7 @@ project "ArcApp"
 	includedirs
 	{
 		"%{prj.name}/src",
-		--"Engine/vendor/spdlog/include",
+		"ArcEngine/vendor/spdlog/include",
 		"ArcEngine/src"
 	}
 
