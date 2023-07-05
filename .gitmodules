@@ -4,10 +4,9 @@
 [submodule "ArcEngine/vendor/GLFW"]
 	path = ArcEngine/vendor/GLFW
 	url = https://github.com/andrewcreekmore/glfw
-[submodule "ArcEngine/vendor/ImGui"]
-	path = ArcEngine/vendor/ImGui
-	url = https://github.com/andrewcreekmore/imgui
-	branch = docking
 [submodule "ArcEngine/vendor/GLM"]
 	path = ArcEngine/vendor/GLM
 	url = https://github.com/g-truc/glm
+[submodule "ArcEngine/vendor/ImGui"]
+	path = ArcEngine/vendor/ImGui
+	url = https://github.com/andrewcreekmore/imgui
