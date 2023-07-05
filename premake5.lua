@@ -13,12 +13,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 includedir = {}
 includedir["GLFW"] = "ArcEngine/vendor/GLFW/include"
---includedir["Glad"] = "ArcEngine/vendor/Glad/include"
+includedir["Glad"] = "ArcEngine/vendor/Glad/include"
 --includedir["ImGui"] = "ArcEngine/vendor/imgui" 
 
 -- include vendor premake files (manually added)
 include "ArcEngine/vendor/GLFW"
---include "ArcEngine/vendor/Glad"
+include "ArcEngine/vendor/Glad"
 --include "ArcEngine/vendor/imgui"
 
 project "ArcEngine"
@@ -42,15 +42,15 @@ project "ArcEngine"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{includedir.GLFW}"--,
-		--"%{includedir.Glad}",
+		"%{includedir.GLFW}",
+		"%{includedir.Glad}"--,
 		--"%{includedir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
-		--"Glad",
+		"Glad",
 		--"ImGui",
 		"opengl32.lib"
 	}
