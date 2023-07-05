@@ -4,7 +4,7 @@
 
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
-//#include "ArcEngine/LayerStack.h"
+#include "ArcEngine/LayerStack.h"
 #include "ArcEngine/Log.h"
 #include "Window.h"
 
@@ -32,8 +32,8 @@ namespace ArcEngine
 
 		void OnEvent(Event& e);
 
-		//void PushLayer(Layer* layer);
-		//void PushOverlay(Layer* overlay);
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* overlay);
 
 		inline static Application& Get() { return *s_Instance; }
 		inline Window& GetWindow() { return *m_Window; }
@@ -44,7 +44,7 @@ namespace ArcEngine
 
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
-		//LayerStack m_LayerStack;
+		LayerStack m_LayerStack;
 
 		static Application* s_Instance;
 	};

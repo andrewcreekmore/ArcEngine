@@ -20,7 +20,7 @@ int main(int argc, char** argv)
 {
 	ArcEngine::Log::Init();
 
-	ARC_CORE_INFO("Welcome to ArcEngine!\n");
+	//ARC_CORE_INFO("Welcome to ArcEngine!\n");
 
 	auto app = ArcEngine::CreateApplication();
 	app->Run();

@@ -75,7 +75,7 @@ namespace ArcEngine
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				// create Engine event
+				// create ArcEngine event
 				WindowResizeEvent event(width, height);
 				data.Width = width;
 				data.Height = height;
@@ -88,7 +88,7 @@ namespace ArcEngine
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				// create Engine event + dispatch it
+				// create ArcEngine event + dispatch it
 				WindowCloseEvent event;
 				data.EventCallback(event);
 			});
