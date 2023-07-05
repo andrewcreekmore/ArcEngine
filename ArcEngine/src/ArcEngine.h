@@ -15,9 +15,9 @@ ArcEngine.h:
 
 //---------------------------// 
 
-//#include "ArcEngine/Input.h"
-//#include "ArcEngine/KeyCodes.h"
-//#include "ArcEngine/MouseButtonCodes.h"
+#include "ArcEngine/Input.h"
+#include "ArcEngine/KeyCodes.h"
+#include "ArcEngine/MouseButtonCodes.h"
 
 //---------------------------// 
 

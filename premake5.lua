@@ -15,6 +15,7 @@ includedir = {}
 includedir["GLFW"] = "ArcEngine/vendor/GLFW/include"
 includedir["Glad"] = "ArcEngine/vendor/Glad/include"
 includedir["ImGui"] = "ArcEngine/vendor/ImGui" 
+includedir["GLM"] = "ArcEngine/vendor/GLM" 
 
 -- include vendor premake files (manually added)
 include "ArcEngine/vendor/GLFW"
@@ -35,7 +36,9 @@ project "ArcEngine"
 	files
 	{
 		"%{prj.name}/src/**.h", 
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/GLM/glm/**.hpp",
+		"%{prj.name}/vendor/GLM/glm/**.inl"
 	}
 
 	includedirs
@@ -44,7 +47,8 @@ project "ArcEngine"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{includedir.GLFW}",
 		"%{includedir.Glad}",
-		"%{includedir.ImGui}"
+		"%{includedir.ImGui}",
+		"%{includedir.GLM}"
 	}
 
 	links
@@ -110,7 +114,8 @@ project "ArcApp"
 	{
 		"%{prj.name}/src",
 		"ArcEngine/vendor/spdlog/include",
-		"ArcEngine/src"
+		"ArcEngine/src",
+		"%{includedir.GLM}"
 	}
 
 	links
