@@ -7,3 +7,6 @@
 [submodule "ArcEngine/vendor/ImGui"]
 	path = ArcEngine/vendor/ImGui
 	url = https://github.com/andrewcreekmore/imgui
+[submodule "ArcEngine/vendor/GLM"]
+	path = ArcEngine/vendor/GLM
+	url = https://github.com/g-truc/glm
