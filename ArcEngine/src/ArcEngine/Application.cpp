@@ -25,6 +25,10 @@ namespace ArcEngine
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(ARC_BIND_EVENT_FN(Application::OnEvent));
+
+		// create ImGuiLayer
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 
 
@@ -43,8 +47,11 @@ namespace ArcEngine
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
-			//auto [xPos, yPos] = Input::GetMousePosition();
-			//ARC_CORE_TRACE("{0}, {1}", xPos, yPos);
+			// update ImGuiLayer
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}

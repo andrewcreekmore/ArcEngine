@@ -4,6 +4,7 @@
 
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
+#include "ImGui/ImGuiLayer.h"
 #include "LayerStack.h"
 #include "Log.h"
 #include "Window.h"
@@ -41,8 +42,10 @@ namespace ArcEngine
 
 		bool OnWindowClose(WindowCloseEvent& e);
 
-		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
+		
 		LayerStack m_LayerStack;
 
 		static Application* s_Instance;

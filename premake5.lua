@@ -115,7 +115,8 @@ project "ArcApp"
 		"%{prj.name}/src",
 		"ArcEngine/vendor/spdlog/include",
 		"ArcEngine/src",
-		"%{includedir.GLM}"
+		"%{includedir.GLM}",
+		"ArcEngine/vendor"
 	}
 
 	links
