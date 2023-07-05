@@ -1,3 +1,6 @@
 [submodule "ArcEngine/vendor/spdlog"]
 	path = ArcEngine/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "ArcEngine/vendor/GLFW"]
+	path = ArcEngine/vendor/GLFW
+	url = https://github.com/andrewcreekmore/glfw
