@@ -2,17 +2,19 @@
 
 #include "Core.h"
 
-//#include "Events/ApplicationEvent.h"
-//#include "Events/Event.h"
-//#include "Engine/LayerStack.h"
-//#include "Engine/Log.h"
-//#include "Window.h"
+#include "Events/Event.h"
+#include "Events/ApplicationEvent.h"
+//#include "ArcEngine/LayerStack.h"
+#include "ArcEngine/Log.h"
+#include "Window.h"
 
 /*
 ===========================================================================
-Application: 
-- 
-- 
+Application: central hub class; wrapper for clients (ArcApps)
+- creates Window
+- receives Events (from Window) and dispatches them to Layers
+- Run() loop updates app
+- singleton
 ===========================================================================
 */
 
@@ -28,19 +30,19 @@ namespace ArcEngine
 
 		void Run();
 
-		//void OnEvent(Event& e);
+		void OnEvent(Event& e);
 
 		//void PushLayer(Layer* layer);
 		//void PushOverlay(Layer* overlay);
 
 		inline static Application& Get() { return *s_Instance; }
-		//inline Window& GetWindow() { return *m_Window; }
+		inline Window& GetWindow() { return *m_Window; }
 
 	private:
 
-		//bool OnWindowClose(WindowCloseEvent& e);
+		bool OnWindowClose(WindowCloseEvent& e);
 
-		//std::unique_ptr<Window> m_Window;
+		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 		//LayerStack m_LayerStack;
 

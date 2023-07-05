@@ -12,12 +12,12 @@ workspace "ArcEngine"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 includedir = {}
---includedir["GLFW"] = "ArcEngine/vendor/GLFW/include"
+includedir["GLFW"] = "ArcEngine/vendor/GLFW/include"
 --includedir["Glad"] = "ArcEngine/vendor/Glad/include"
 --includedir["ImGui"] = "ArcEngine/vendor/imgui" 
 
 -- include vendor premake files (manually added)
---include "ArcEngine/vendor/GLFW"
+include "ArcEngine/vendor/GLFW"
 --include "ArcEngine/vendor/Glad"
 --include "ArcEngine/vendor/imgui"
 
@@ -29,8 +29,8 @@ project "ArcEngine"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-	--pchheader "ArcEnginePCH.h"
-	--pchsource "ArcEngine/src/ArcEnginePCH.cpp"
+	pchheader "ArcEnginePCH.h"
+	pchsource "ArcEngine/src/ArcEnginePCH.cpp"
 
 	files
 	{
@@ -41,18 +41,18 @@ project "ArcEngine"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"--,
-		--"%{includedir.GLFW}",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{includedir.GLFW}"--,
 		--"%{includedir.Glad}",
 		--"%{includedir.ImGui}"
 	}
 
 	links
 	{
-		--"GLFW",
+		"GLFW",
 		--"Glad",
 		--"ImGui",
-		--"opengl32.lib"
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -63,8 +63,8 @@ project "ArcEngine"
 	defines 
 	{ 
 		"ARC_PLATFORM_WINDOWS",
-		"ARC_BUILD_DLL"--,
-		--"GLFW_INCLUDE_NONE" -- don't include openGL headers when including GLFW (already incl. in Glad)
+		"ARC_BUILD_DLL",
+		"GLFW_INCLUDE_NONE" -- don't include openGL headers when including GLFW (already incl. in Glad)
 	}
 
 	postbuildcommands

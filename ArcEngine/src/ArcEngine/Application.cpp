@@ -1,4 +1,4 @@
-//#include "ArcEnginePCH.h"
+#include "ArcEnginePCH.h"
 #include "Application.h"
 //#include "Input.h"
 
@@ -6,24 +6,25 @@
 
 /*
 ===========================================================================
-Application:
--
--
+Application: central hub class; wrapper for clients (ArcApps)
+- creates Window
+- receives Events (from Window) and dispatches them to Layers
+- Run() loop updates app
+- singleton
 ===========================================================================
 */
 
 namespace ArcEngine 
 {
-	// hold singleton of application
 	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
 	{
-		//ARC_CORE_ASSERT(!s_Instance, "Application already exists!");
-		//s_Instance = this;
+		ARC_CORE_ASSERT(!s_Instance, "Application already exists!");
+		s_Instance = this;
 
-		//m_Window = std::unique_ptr<Window>(Window::Create());
-		//m_Window->SetEventCallback(ENG_BIND_EVENT_FN(Application::OnEvent));
+		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window->SetEventCallback(ARC_BIND_EVENT_FN(Application::OnEvent));
 	}
 
 
@@ -43,25 +44,25 @@ namespace ArcEngine
 			//	layer->OnUpdate();
 
 			//auto [xPos, yPos] = Input::GetMousePosition();
-			//ENG_CORE_TRACE("{0}, {1}", xPos, yPos);
+			//ARC_CORE_TRACE("{0}, {1}", xPos, yPos);
 
-			//m_Window->OnUpdate();
+			m_Window->OnUpdate();
 		}
 	}
 
-	//void Application::OnEvent(Event& e)
-	//{
-	//	EventDispatcher dispatcher(e);
-	//	dispatcher.Dispatch<WindowCloseEvent>(ENG_BIND_EVENT_FN(Application::OnWindowClose));
+	void Application::OnEvent(Event& e)
+	{
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(ARC_BIND_EVENT_FN(Application::OnWindowClose));
 
-	//	// traverse backwards through the layer stack, calling OnEvent, until reaching a handled event
-	//	for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
-	//	{
-	//		(*--it)->OnEvent(e);
-	//		if (e.IsHandled())
-	//			break;
-	//	}
-	//}
+		// traverse backwards through the layer stack, calling OnEvent, until reaching a handled event
+		//for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
+		//{
+		//	(*--it)->OnEvent(e);
+		//	if (e.IsHandled())
+		//		break;
+		//}
+	}
 
 	//void Application::PushLayer(Layer* layer)
 	//{
@@ -75,9 +76,9 @@ namespace ArcEngine
 	//	overlay->OnAttach();
 	//}
 
-	//bool Application::OnWindowClose(WindowCloseEvent& e)
-	//{
-	//	m_Running = false;
-	//	return true;
-	//}
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		m_Running = false;
+		return true;
+	}
 }
