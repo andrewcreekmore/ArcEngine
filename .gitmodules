@@ -4,3 +4,6 @@
 [submodule "ArcEngine/vendor/GLFW"]
 	path = ArcEngine/vendor/GLFW
 	url = https://github.com/andrewcreekmore/glfw
+[submodule "ArcEngine/vendor/ImGui"]
+	path = ArcEngine/vendor/ImGui
+	url = https://github.com/andrewcreekmore/imgui
