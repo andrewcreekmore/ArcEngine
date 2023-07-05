@@ -1,6 +1,6 @@
 #include "ArcEnginePCH.h"
 #include "Application.h"
-//#include "Input.h"
+#include "Input.h"
 
 //#include <glad/glad.h>
 

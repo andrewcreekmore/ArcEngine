@@ -4,8 +4,8 @@
 
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
-#include "ArcEngine/LayerStack.h"
-#include "ArcEngine/Log.h"
+#include "LayerStack.h"
+#include "Log.h"
 #include "Window.h"
 
 /*
@@ -17,7 +17,6 @@ Application: central hub class; wrapper for clients (ArcApps)
 - singleton
 ===========================================================================
 */
-
 
 namespace ArcEngine
 {

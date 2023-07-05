@@ -30,7 +30,7 @@ namespace ArcEngine
 		virtual void OnUpdate() {}
 
 		// called when ImGui renders
-		//virtual void OnImGuiRender() {}
+		virtual void OnImGuiRender() {}
 
 		// when an event is sent to the layer, it's received here
 		virtual void OnEvent(Event& event) {}

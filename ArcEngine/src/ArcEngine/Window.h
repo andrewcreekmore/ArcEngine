@@ -44,6 +44,7 @@ namespace ArcEngine
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
 
+		// returns native (i.e., platform-specific) implementation of Window
 		virtual void* GetNativeWindow() const = 0;
 
 		// implemented per-platform

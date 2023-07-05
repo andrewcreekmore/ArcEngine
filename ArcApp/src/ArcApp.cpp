@@ -26,10 +26,10 @@ public:
 		//	ARC_TRACE("Tab key is pressed!");
 	}
 
-	//virtual void OnImGuiRender() override
-	//{
+	virtual void OnImGuiRender() override
+	{
 
-	//}
+	}
 
 	void OnEvent(ArcEngine::Event& event) override
 	{
@@ -50,7 +50,7 @@ public:
 	ArcApp()
 	{
 		PushLayer(new ExampleLayer());
-		//PushOverlay(new ArcEngine::ImGuiLayer());
+		PushOverlay(new ArcEngine::ImGuiLayer());
 	}
 
 	~ArcApp()

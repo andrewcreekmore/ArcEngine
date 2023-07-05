@@ -5,7 +5,7 @@
 #include "ArcEngine/Events/KeyEvent.h"
 #include "ArcEngine/Events/MouseEvent.h"
 
-//#include <glad/glad.h>
+#include <glad/glad.h>
 
 /*
 ===========================================================================
@@ -55,14 +55,16 @@ namespace ArcEngine
 		if (s_GLFWWindowCount == 0) // if GLFW not yet initialized, do so
 		{
 			int success = glfwInit();
-			ARC_CORE_ASSERT(success, "Could not initiate GLFW!");
+			ARC_CORE_ASSERT(success, "Failed to initialize GLFW!");
 			glfwSetErrorCallback(GLFWErrorCallback);
 		}
 
 		m_Window = glfwCreateWindow((int)properties.Width, (int)properties.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
-		//int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		//ARC_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress); // init Glad
+		ARC_CORE_ASSERT(status, "Failed to initialize Glad!");
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
