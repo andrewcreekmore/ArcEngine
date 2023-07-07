@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "Input.h"
 
-//#include <glad/glad.h>
+#include <glad/glad.h>
 
 /*
 ===========================================================================
@@ -54,6 +54,8 @@ namespace ArcEngine
 			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
+
+			glClear(GL_COLOR_BUFFER_BIT); // clear buffers
 		}
 	}
 

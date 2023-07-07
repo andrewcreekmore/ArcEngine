@@ -10,11 +10,15 @@ Core.h: macro definitions
 */
 
 #ifdef ARC_PLATFORM_WINDOWS
+#if ARC_DYNAMIC_LINK
 	#ifdef ARC_BUILD_DLL // if building DLL, export; else, import
 		#define ARCENGINE_API __declspec(dllexport)
 	#else
 		#define ARCENGINE_API __declspec(dllimport)
 	#endif
+#else
+	#define ARCENGINE_API // as nothing
+#endif
 #else
 	#error ArcEngine only supports Windows (for now)!
 #endif
