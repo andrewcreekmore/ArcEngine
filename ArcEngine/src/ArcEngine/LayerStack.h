@@ -21,7 +21,7 @@ namespace ArcEngine
 	{
 	public:
 
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);

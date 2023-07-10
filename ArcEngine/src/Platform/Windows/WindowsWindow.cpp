@@ -21,7 +21,10 @@ namespace ArcEngine
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
-		ARC_CORE_ERROR("GLFW Error ({0}: {1})", error, description);
+		if (error != 65539) // suppressing GLFW_MOUSE_PASSTHROUGH attribute setting error (temp)
+		{
+			ARC_CORE_ERROR("GLFW Error ({0}: {1})", error, description);
+		}
 	}
 
 	//---------------------------// 

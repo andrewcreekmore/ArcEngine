@@ -44,6 +44,7 @@ namespace ArcEngine
 
 		bool m_Running = true;
 		std::unique_ptr<Window> m_Window;
+		//std::unique_ptr<ImGuiLayer> m_ImGuiLayer;
 		ImGuiLayer* m_ImGuiLayer;
 		
 		LayerStack m_LayerStack;

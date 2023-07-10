@@ -27,7 +27,9 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-
+		ImGui::Begin("test");
+		ImGui::Text("hello");
+		ImGui::End();
 	}
 
 	void OnEvent(ArcEngine::Event& event) override
@@ -42,7 +44,7 @@ public:
 
 	ArcApp()
 	{
-
+		PushLayer(new ExampleLayer());
 	}
 
 	~ArcApp()
